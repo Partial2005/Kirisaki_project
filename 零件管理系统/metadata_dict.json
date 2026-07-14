@@ -1,0 +1,158 @@
+{
+  "metadata_version": "1.0",
+  "description": "零件成本管理系统 - 元数据字典（数据地图）",
+  "created_at": "2026-04-15",
+  "author": "系统自动生成",
+  "tables": [
+    {
+      "table_name": "currencies",
+      "display_name": "货币配置表",
+      "description": "存储系统支持的所有货币类型，作为成本计算的货币单位参考数据。属于基础配置数据，变更频率低。",
+      "data_category": "基础配置数据",
+      "business_owner": "财务数据管理员",
+      "update_frequency": "低频（按需变更）",
+      "fields": [
+        {"name": "id", "display_name": "主键ID", "data_type": "INTEGER", "is_pk": true, "is_fk": false, "nullable": false, "description": "自增主键，系统自动生成"},
+        {"name": "code", "display_name": "货币代码", "data_type": "VARCHAR(10)", "is_pk": false, "is_fk": false, "nullable": false, "description": "国际标准货币代码，如 CNY/USD/EUR，全局唯一"},
+        {"name": "name", "display_name": "货币名称", "data_type": "VARCHAR(50)", "is_pk": false, "is_fk": false, "nullable": false, "description": "货币中文名称，如人民币、美元"},
+        {"name": "symbol", "display_name": "货币符号", "data_type": "VARCHAR(10)", "is_pk": false, "is_fk": false, "nullable": false, "description": "货币显示符号，如 ¥、$、€"},
+        {"name": "description", "display_name": "备注说明", "data_type": "TEXT", "is_pk": false, "is_fk": false, "nullable": true, "description": "对该货币的补充说明"},
+        {"name": "is_active", "display_name": "是否启用", "data_type": "BOOLEAN", "is_pk": false, "is_fk": false, "nullable": false, "description": "标记该货币是否在系统中启用，false表示停用"},
+        {"name": "created_at", "display_name": "创建时间", "data_type": "DATETIME", "is_pk": false, "is_fk": false, "nullable": true, "description": "记录创建时间，UTC时区"},
+        {"name": "updated_at", "display_name": "更新时间", "data_type": "DATETIME", "is_pk": false, "is_fk": false, "nullable": true, "description": "记录最后更新时间，UTC时区"}
+      ]
+    },
+    {
+      "table_name": "units",
+      "display_name": "单位配置表",
+      "description": "存储系统中使用的所有计量单位，包括重量、数量、长度、体积等类别。属于基础配置数据。",
+      "data_category": "基础配置数据",
+      "business_owner": "数据标准管理员",
+      "update_frequency": "低频（按需变更）",
+      "fields": [
+        {"name": "id", "display_name": "主键ID", "data_type": "INTEGER", "is_pk": true, "is_fk": false, "nullable": false, "description": "自增主键"},
+        {"name": "code", "display_name": "单位代码", "data_type": "VARCHAR(20)", "is_pk": false, "is_fk": false, "nullable": false, "description": "单位简写代码，如 kg/pcs/m，全局唯一"},
+        {"name": "name", "display_name": "单位名称", "data_type": "VARCHAR(50)", "is_pk": false, "is_fk": false, "nullable": false, "description": "单位中文名称，如千克、件、米"},
+        {"name": "category", "display_name": "单位类别", "data_type": "VARCHAR(30)", "is_pk": false, "is_fk": false, "nullable": true, "description": "单位所属类别：重量/数量/长度/体积"},
+        {"name": "description", "display_name": "备注说明", "data_type": "TEXT", "is_pk": false, "is_fk": false, "nullable": true, "description": "对该单位的补充说明"},
+        {"name": "is_active", "display_name": "是否启用", "data_type": "BOOLEAN", "is_pk": false, "is_fk": false, "nullable": false, "description": "是否启用"},
+        {"name": "created_at", "display_name": "创建时间", "data_type": "DATETIME", "is_pk": false, "is_fk": false, "nullable": true, "description": "记录创建时间"},
+        {"name": "updated_at", "display_name": "更新时间", "data_type": "DATETIME", "is_pk": false, "is_fk": false, "nullable": true, "description": "记录最后更新时间"}
+      ]
+    },
+    {
+      "table_name": "regions",
+      "display_name": "区域配置表",
+      "description": "存储系统支持的区域信息，用于标识零件的生产或来源地。属于基础配置数据。",
+      "data_category": "基础配置数据",
+      "business_owner": "数据标准管理员",
+      "update_frequency": "低频（按需变更）",
+      "fields": [
+        {"name": "id", "display_name": "主键ID", "data_type": "INTEGER", "is_pk": true, "is_fk": false, "nullable": false, "description": "自增主键"},
+        {"name": "code", "display_name": "区域代码", "data_type": "VARCHAR(20)", "is_pk": false, "is_fk": false, "nullable": false, "description": "区域唯一标识代码"},
+        {"name": "name", "display_name": "区域名称", "data_type": "VARCHAR(50)", "is_pk": false, "is_fk": false, "nullable": false, "description": "区域中文名称"},
+        {"name": "country", "display_name": "所属国家", "data_type": "VARCHAR(50)", "is_pk": false, "is_fk": false, "nullable": true, "description": "该区域所属国家"},
+        {"name": "description", "display_name": "备注说明", "data_type": "TEXT", "is_pk": false, "is_fk": false, "nullable": true, "description": "对该区域的补充说明"},
+        {"name": "is_active", "display_name": "是否启用", "data_type": "BOOLEAN", "is_pk": false, "is_fk": false, "nullable": false, "description": "是否启用"},
+        {"name": "created_at", "display_name": "创建时间", "data_type": "DATETIME", "is_pk": false, "is_fk": false, "nullable": true, "description": "记录创建时间"},
+        {"name": "updated_at", "display_name": "更新时间", "data_type": "DATETIME", "is_pk": false, "is_fk": false, "nullable": true, "description": "记录最后更新时间"}
+      ]
+    },
+    {
+      "table_name": "material_types",
+      "display_name": "物料类型表",
+      "description": "存储零件所属的物料类型，如原材料、半成品、成品件、外购件等。属于基础配置数据，是零件分类的统一标准。",
+      "data_category": "基础配置数据",
+      "business_owner": "物料管理员",
+      "update_frequency": "低频（按需变更）",
+      "fields": [
+        {"name": "id", "display_name": "主键ID", "data_type": "INTEGER", "is_pk": true, "is_fk": false, "nullable": false, "description": "自增主键"},
+        {"name": "code", "display_name": "类型代码", "data_type": "VARCHAR(20)", "is_pk": false, "is_fk": false, "nullable": false, "description": "物料类型代码，全局唯一"},
+        {"name": "name", "display_name": "类型名称", "data_type": "VARCHAR(50)", "is_pk": false, "is_fk": false, "nullable": false, "description": "物料类型中文名称"},
+        {"name": "description", "display_name": "类型描述", "data_type": "TEXT", "is_pk": false, "is_fk": false, "nullable": true, "description": "该物料类型的详细说明"},
+        {"name": "is_active", "display_name": "是否启用", "data_type": "BOOLEAN", "is_pk": false, "is_fk": false, "nullable": false, "description": "是否启用"},
+        {"name": "created_at", "display_name": "创建时间", "data_type": "DATETIME", "is_pk": false, "is_fk": false, "nullable": true, "description": "记录创建时间"},
+        {"name": "updated_at", "display_name": "更新时间", "data_type": "DATETIME", "is_pk": false, "is_fk": false, "nullable": true, "description": "记录最后更新时间"}
+      ]
+    },
+    {
+      "table_name": "parts",
+      "display_name": "零件主数据表",
+      "description": "核心业务对象，管理零件的全生命周期信息。零件编码为唯一标识，所有成本和BOM数据均以此为基础关联。体现了主数据治理和数据同源原则。",
+      "data_category": "主数据",
+      "business_owner": "零件数据管理员",
+      "update_frequency": "中频（零件新增/变更时）",
+      "fields": [
+        {"name": "id", "display_name": "主键ID", "data_type": "INTEGER", "is_pk": true, "is_fk": false, "nullable": false, "description": "自增主键"},
+        {"name": "part_code", "display_name": "零件编码", "data_type": "VARCHAR(50)", "is_pk": false, "is_fk": false, "nullable": false, "description": "零件唯一业务标识，全局唯一，不可重复"},
+        {"name": "name", "display_name": "零件名称", "data_type": "VARCHAR(100)", "is_pk": false, "is_fk": false, "nullable": false, "description": "零件中文名称"},
+        {"name": "description", "display_name": "零件描述", "data_type": "TEXT", "is_pk": false, "is_fk": false, "nullable": true, "description": "零件的详细描述信息"},
+        {"name": "version", "display_name": "版本号", "data_type": "VARCHAR(20)", "is_pk": false, "is_fk": false, "nullable": true, "description": "零件设计版本"},
+        {"name": "status", "display_name": "状态", "data_type": "VARCHAR(20)", "is_pk": false, "is_fk": false, "nullable": true, "description": "生命周期状态：active/inactive/prototype/obsolete"},
+        {"name": "material_type_id", "display_name": "物料类型ID", "data_type": "INTEGER", "is_pk": false, "is_fk": true, "nullable": true, "description": "外键，关联 material_types.id"},
+        {"name": "weight_unit_id", "display_name": "重量单位ID", "data_type": "INTEGER", "is_pk": false, "is_fk": true, "nullable": true, "description": "外键，关联 units.id"},
+        {"name": "origin_region_id", "display_name": "来源区域ID", "data_type": "INTEGER", "is_pk": false, "is_fk": true, "nullable": true, "description": "外键，关联 regions.id"},
+        {"name": "weight", "display_name": "重量", "data_type": "FLOAT", "is_pk": false, "is_fk": false, "nullable": true, "description": "零件重量，单位由 weight_unit_id 指定"},
+        {"name": "drawing_number", "display_name": "图纸编号", "data_type": "VARCHAR(50)", "is_pk": false, "is_fk": false, "nullable": true, "description": "零件对应的工程图纸编号"},
+        {"name": "supplier", "display_name": "供应商", "data_type": "VARCHAR(100)", "is_pk": false, "is_fk": false, "nullable": true, "description": "零件的主要供应商名称"},
+        {"name": "created_by", "display_name": "创建人", "data_type": "VARCHAR(50)", "is_pk": false, "is_fk": false, "nullable": true, "description": "数据创建人员"},
+        {"name": "created_at", "display_name": "创建时间", "data_type": "DATETIME", "is_pk": false, "is_fk": false, "nullable": true, "description": "记录创建时间"},
+        {"name": "updated_at", "display_name": "更新时间", "data_type": "DATETIME", "is_pk": false, "is_fk": false, "nullable": true, "description": "记录最后更新时间"}
+      ]
+    },
+    {
+      "table_name": "boms",
+      "display_name": "物料清单表（BOM）",
+      "description": "记录零件的物料清单，即一个父零件由哪些子零件构成。属于事务数据，通过调用零件主数据建立层级关系。体现了事务数据治理和数据联接原则。",
+      "data_category": "事务数据",
+      "business_owner": "工艺数据管理员",
+      "update_frequency": "中频（工艺变更时）",
+      "fields": [
+        {"name": "id", "display_name": "主键ID", "data_type": "INTEGER", "is_pk": true, "is_fk": false, "nullable": false, "description": "自增主键"},
+        {"name": "parent_part_id", "display_name": "父零件ID", "data_type": "INTEGER", "is_pk": false, "is_fk": true, "nullable": false, "description": "外键，关联 parts.id，表示上级零件"},
+        {"name": "child_part_id", "display_name": "子零件ID", "data_type": "INTEGER", "is_pk": false, "is_fk": true, "nullable": false, "description": "外键，关联 parts.id，表示下级零件"},
+        {"name": "quantity", "display_name": "用量", "data_type": "FLOAT", "is_pk": false, "is_fk": false, "nullable": false, "description": "每个父零件所需子零件的数量"},
+        {"name": "unit_id", "display_name": "用量单位ID", "data_type": "INTEGER", "is_pk": false, "is_fk": true, "nullable": true, "description": "外键，关联 units.id"},
+        {"name": "bom_level", "display_name": "BOM层级", "data_type": "INTEGER", "is_pk": false, "is_fk": false, "nullable": true, "description": "BOM展开层级，1为第一层子件"},
+        {"name": "effective_date", "display_name": "生效日期", "data_type": "DATETIME", "is_pk": false, "is_fk": false, "nullable": true, "description": "BOM记录的生效日期"},
+        {"name": "expiry_date", "display_name": "失效日期", "data_type": "DATETIME", "is_pk": false, "is_fk": false, "nullable": true, "description": "BOM记录的失效日期，null表示长期有效"},
+        {"name": "notes", "display_name": "备注", "data_type": "TEXT", "is_pk": false, "is_fk": false, "nullable": true, "description": "BOM条目的附加说明"},
+        {"name": "created_at", "display_name": "创建时间", "data_type": "DATETIME", "is_pk": false, "is_fk": false, "nullable": true, "description": "记录创建时间"},
+        {"name": "updated_at", "display_name": "更新时间", "data_type": "DATETIME", "is_pk": false, "is_fk": false, "nullable": true, "description": "记录最后更新时间"}
+      ]
+    },
+    {
+      "table_name": "cost_items",
+      "display_name": "成本项表",
+      "description": "记录零件的成本构成信息，包括材料成本、制造成本、间接费用和总成本。属于报告数据，用于支持定价和成本优化决策。计算依据可追溯。",
+      "data_category": "报告数据",
+      "business_owner": "成本核算管理员",
+      "update_frequency": "按成本核算周期更新",
+      "fields": [
+        {"name": "id", "display_name": "主键ID", "data_type": "INTEGER", "is_pk": true, "is_fk": false, "nullable": false, "description": "自增主键"},
+        {"name": "part_id", "display_name": "零件ID", "data_type": "INTEGER", "is_pk": false, "is_fk": true, "nullable": false, "description": "外键，关联 parts.id"},
+        {"name": "currency_id", "display_name": "货币ID", "data_type": "INTEGER", "is_pk": false, "is_fk": true, "nullable": false, "description": "外键，关联 currencies.id"},
+        {"name": "material_cost", "display_name": "材料成本", "data_type": "FLOAT", "is_pk": false, "is_fk": false, "nullable": true, "description": "零件材料采购成本"},
+        {"name": "manufacturing_cost", "display_name": "制造成本", "data_type": "FLOAT", "is_pk": false, "is_fk": false, "nullable": true, "description": "加工制造所发生的直接成本"},
+        {"name": "overhead_cost", "display_name": "间接费用", "data_type": "FLOAT", "is_pk": false, "is_fk": false, "nullable": true, "description": "管理费、折旧等分摊的间接费用"},
+        {"name": "total_cost", "display_name": "总成本", "data_type": "FLOAT", "is_pk": false, "is_fk": false, "nullable": true, "description": "= 材料成本 + 制造成本 + 间接费用"},
+        {"name": "cost_version", "display_name": "成本版本", "data_type": "VARCHAR(20)", "is_pk": false, "is_fk": false, "nullable": true, "description": "成本计算版本标识"},
+        {"name": "calculation_basis", "display_name": "计算依据", "data_type": "TEXT", "is_pk": false, "is_fk": false, "nullable": true, "description": "成本计算的详细依据，确保可追溯"},
+        {"name": "effective_date", "display_name": "生效日期", "data_type": "DATETIME", "is_pk": false, "is_fk": false, "nullable": true, "description": "成本数据的生效日期"},
+        {"name": "notes", "display_name": "备注", "data_type": "TEXT", "is_pk": false, "is_fk": false, "nullable": true, "description": "附加说明"},
+        {"name": "created_at", "display_name": "创建时间", "data_type": "DATETIME", "is_pk": false, "is_fk": false, "nullable": true, "description": "记录创建时间"},
+        {"name": "updated_at", "display_name": "更新时间", "data_type": "DATETIME", "is_pk": false, "is_fk": false, "nullable": true, "description": "记录最后更新时间"}
+      ]
+    }
+  ],
+  "relationships": [
+    {"from_table": "parts", "from_field": "material_type_id", "to_table": "material_types", "to_field": "id", "relationship": "many-to-one", "description": "零件属于某种物料类型"},
+    {"from_table": "parts", "from_field": "weight_unit_id", "to_table": "units", "to_field": "id", "relationship": "many-to-one", "description": "零件重量使用某种计量单位"},
+    {"from_table": "parts", "from_field": "origin_region_id", "to_table": "regions", "to_field": "id", "relationship": "many-to-one", "description": "零件来源于某个区域"},
+    {"from_table": "boms", "from_field": "parent_part_id", "to_table": "parts", "to_field": "id", "relationship": "many-to-one", "description": "BOM记录的父零件"},
+    {"from_table": "boms", "from_field": "child_part_id", "to_table": "parts", "to_field": "id", "relationship": "many-to-one", "description": "BOM记录的子零件"},
+    {"from_table": "boms", "from_field": "unit_id", "to_table": "units", "to_field": "id", "relationship": "many-to-one", "description": "BOM用量的计量单位"},
+    {"from_table": "cost_items", "from_field": "part_id", "to_table": "parts", "to_field": "id", "relationship": "many-to-one", "description": "成本项归属的零件"},
+    {"from_table": "cost_items", "from_field": "currency_id", "to_table": "currencies", "to_field": "id", "relationship": "many-to-one", "description": "成本使用的货币"}
+  ]
+}

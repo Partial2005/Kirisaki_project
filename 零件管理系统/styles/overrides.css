@@ -1,0 +1,110 @@
+/* ============================================
+   强制覆盖样式 - 处理深色内联样式
+   保持蓝白简约风格一致性
+   ============================================ */
+
+/* === 覆盖深色背景卡片/容器 === */
+div[style*="rgba(26,39,68"],
+div[style*="rgba(15,22,36"],
+div[style*="rgba(20,30,55"],
+div[style*="rgba(30,50,90"],
+div[style*="rgba(49,130,206,0.8"],
+div[style*="rgba(49,130,206,0.9"],
+div[style*="rgba(49,130,206,0.95"] {
+    background: var(--bg-white) !important;
+    border-color: var(--border-light) !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+
+/* 覆盖带透明度的深色容器 */
+div[style*="rgba(26,39,68,0.5"],
+div[style*="rgba(26,39,68,0.6"],
+div[style*="rgba(26,39,68,0.7"] {
+    background: var(--bg-white) !important;
+    border-color: var(--border-light) !important;
+}
+
+/* 覆盖深色表格头背景 */
+div[style*="rgba(49,130,206,0.15"] {
+    background: var(--gray-100) !important;
+    border-color: var(--border-light) !important;
+}
+
+/* 覆盖 BOM 页面表头 */
+div[style*="rgba(49,130,206,0.15)"] {
+    background: var(--gray-100) !important;
+}
+
+/* 覆盖深色边框线 */
+hr[style*="rgba(99,179,237"],
+div[style*="rgba(99,179,237,0.1)"],
+div[style*="border-top:1px solid rgba(99,179,237"] {
+    border-color: var(--border-light) !important;
+}
+
+/* === 覆盖内联深色文字颜色 === */
+span[style*="color:#e2e8f0"],
+span[style*="color:#e2e8f0"] {
+    color: var(--text-primary) !important;
+}
+code[style*="color:#e2e8f0"] {
+    color: var(--text-primary) !important;
+}
+p[style*="color:#e2e8f0"],
+h3[style*="color:#e2e8f0"],
+h4[style*="color:#e2e8f0"],
+div[style*="color:#e2e8f0"] {
+    color: var(--text-primary) !important;
+}
+
+/* 覆盖灰色次要文字 */
+span[style*="color:#a0aec0"],
+span[style*="color:#718096"],
+p[style*="color:#718096"],
+div[style*="color:#718096"] {
+    color: var(--text-secondary) !important;
+}
+
+/* 覆盖 #64748b 灰色文字 */
+span[style*="color:#64748b"],
+p[style*="color:#64748b"],
+div[style*="color:#64748b"] {
+    color: var(--text-secondary) !important;
+}
+
+/* 覆盖蓝色强调文字 */
+span[style*="color:#63b3ed"],
+code[style*="color:#63b3ed"] {
+    color: var(--primary-600) !important;
+}
+
+/* === 覆盖特定页面内联样式 === */
+/* 处理可能残留的深色主题内联样式 */
+div[style*="background-color: rgb(26, 39, 68)"],
+div[style*="background-color:rgb(26,39,68)"],
+div[style*="background: rgb(26, 39, 68)"],
+div[style*="background:rgb(26,39,68)"] {
+    background: var(--bg-white) !important;
+}
+
+div[style*="background-color: rgb(15, 22, 36)"],
+div[style*="background-color:rgb(15,22,36)"] {
+    background: var(--bg-white) !important;
+}
+
+/* 覆盖边框颜色 */
+div[style*="border-color: rgb(99, 179, 237)"],
+div[style*="border-color:rgb(99,179,237)"] {
+    border-color: var(--border-light) !important;
+}
+
+/* 确保所有文字在白色背景上可见 */
+div[style*="color: rgb(226, 232, 240)"],
+div[style*="color:rgb(226,232,240)"] {
+    color: var(--text-primary) !important;
+}
+
+div[style*="color: rgb(160, 174, 192)"],
+div[style*="color:rgb(160,174,192)"] {
+    color: var(--text-secondary) !important;
+}

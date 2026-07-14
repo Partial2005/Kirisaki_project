@@ -1,0 +1,53 @@
+/* ============================================
+   基础样式 - 全局重置与布局
+   ============================================ */
+
+/* === 全局字体 === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+html, body, [class*="css"] {
+    font-family: var(--font-family);
+}
+
+/* === 主背景 === */
+.stApp {
+    background: var(--bg-primary);
+    background-attachment: fixed;
+}
+
+/* === 隐藏 Streamlit 默认元素 === */
+header[data-testid="stHeader"],
+[data-testid="stSidebarHeader"],
+[data-testid="stSidebarNav"],
+[data-testid="collapsedControl"],
+#MainMenu,
+footer {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+}
+
+/* === 主内容区布局 === */
+.block-container {
+    padding-top: var(--space-8) !important;
+    padding-bottom: var(--space-8) !important;
+    max-width: 1400px !important;
+}
+
+/* === 侧边栏基础 === */
+section[data-testid="stSidebar"] {
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border-light);
+    box-shadow: 2px 0 8px rgba(0,0,0,0.04);
+}
+
+section[data-testid="stSidebar"] > div {
+    padding-top: 0 !important;
+}
+
+/* === 分隔线 === */
+hr {
+    border: none;
+    border-top: 1px solid var(--border-light);
+    margin: var(--space-4) 0;
+}

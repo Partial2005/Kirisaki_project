@@ -1,0 +1,435 @@
+/* ============================================
+   组件样式 - 可复用UI组件
+   ============================================ */
+
+/* === 侧边栏导航 === */
+section[data-testid="stSidebar"] .stRadio {
+    padding: 0 var(--space-2);
+}
+
+section[data-testid="stSidebar"] .stRadio [role="radiogroup"] {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+section[data-testid="stSidebar"] .stRadio [role="radiogroup"] > label {
+    display: flex;
+    align-items: center;
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+    color: var(--gray-600);
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    margin: 0;
+    border: 1px solid transparent;
+    background: transparent;
+    gap: 2px;
+}
+
+section[data-testid="stSidebar"] .stRadio [role="radiogroup"] > label:hover {
+    background: var(--primary-50);
+    color: var(--primary-600);
+}
+
+section[data-testid="stSidebar"] .stRadio [role="radiogroup"] > label > div {
+    display: contents;
+}
+
+/* 选中状态 */
+section[data-testid="stSidebar"] .stRadio [aria-checked="true"] > div > div {
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-500)) !important;
+    color: var(--text-white) !important;
+    font-weight: 600;
+    box-shadow: var(--shadow-md);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+}
+
+section[data-testid="stSidebar"] .stRadio [aria-checked="true"] {
+    background: transparent !important;
+}
+
+/* 隐藏 radio 原生圆点 */
+section[data-testid="stSidebar"] .stRadio [role="radiogroup"] > label > div > div::before,
+section[data-testid="stSidebar"] .stRadio input[type="radio"] {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    visibility: hidden !important;
+}
+
+/* 未选中项容器 */
+section[data-testid="stSidebar"] .stRadio [aria-checked="false"] > div > div {
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+}
+
+/* === 指标卡片 === */
+.metric-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    margin: var(--space-2) 0;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.metric-value {
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-800), var(--primary-500));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+}
+
+.metric-label {
+    color: var(--gray-600);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: var(--space-1);
+}
+
+.metric-icon {
+    font-size: 1.8rem;
+    margin-bottom: var(--space-2);
+}
+
+/* === 页面标题 === */
+.page-header {
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8) var(--space-9);
+    margin-bottom: var(--space-8);
+    position: relative;
+    box-shadow: var(--shadow-sm);
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-600), var(--primary-500), var(--primary-400));
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.page-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+    color: var(--text-secondary);
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    margin-top: var(--space-1);
+}
+
+/* === 状态标签 === */
+.status-badge {
+    display: inline-block;
+    padding: 3px var(--space-3);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.status-active { 
+    background: var(--success-50); 
+    color: var(--success-600); 
+    border: 1px solid var(--success-100); 
+}
+.status-inactive { 
+    background: var(--gray-50); 
+    color: var(--gray-400); 
+    border: 1px solid var(--border-light); 
+}
+.status-prototype { 
+    background: var(--warning-50); 
+    color: var(--warning-600); 
+    border: 1px solid var(--warning-100); 
+}
+.status-obsolete { 
+    background: var(--error-50); 
+    color: var(--error-600); 
+    border: 1px solid var(--error-100); 
+}
+
+/* === 按钮样式 === */
+.stButton > button {
+    background: var(--primary-600) !important;
+    color: var(--text-white) !important;
+    border: none !important;
+    border-radius: var(--radius-md) !important;
+    font-weight: 600 !important;
+    padding: var(--space-4) var(--space-6) !important;
+    transition: all var(--transition-normal) !important;
+    box-shadow: var(--shadow-md) !important;
+    font-size: var(--font-size-lg) !important;
+    height: auto !important;
+    min-height: 40px !important;
+    line-height: 1.4 !important;
+}
+
+.stButton > button:hover {
+    background: var(--primary-700) !important;
+    box-shadow: var(--shadow-hover) !important;
+    transform: translateY(-1px) !important;
+}
+
+.stButton > button:active {
+    transform: translateY(0) !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+/* 表单提交按钮 */
+.stFormSubmitButton > button {
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-500)) !important;
+    color: var(--text-white) !important;
+    border: none !important;
+    border-radius: var(--radius-md) !important;
+    font-weight: 600 !important;
+    padding: var(--space-4) var(--space-6) !important;
+    transition: all var(--transition-normal) !important;
+    box-shadow: 0 2px 6px rgba(37,99,235,0.25) !important;
+    font-size: var(--font-size-lg) !important;
+    height: auto !important;
+    min-height: 40px !important;
+}
+
+.stFormSubmitButton > button:hover {
+    background: linear-gradient(135deg, var(--primary-700), var(--primary-600)) !important;
+    box-shadow: var(--shadow-hover) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* 紧凑操作按钮 */
+.stButton > button[kind="secondary"],
+.stButton > button[data-testid="stBaseButton-secondary"] {
+    background: var(--bg-white) !important;
+    color: var(--primary-600) !important;
+    border: 1px solid var(--primary-200) !important;
+    border-radius: var(--radius-sm) !important;
+    font-weight: 500 !important;
+    padding: 6px var(--space-3) !important;
+    font-size: var(--font-size-base) !important;
+    min-height: 34px !important;
+    box-shadow: none !important;
+}
+
+.stButton > button[kind="secondary"]:hover,
+.stButton > button[data-testid="stBaseButton-secondary"]:hover {
+    background: var(--primary-600) !important;
+    color: var(--text-white) !important;
+    border-color: var(--primary-600) !important;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.25) !important;
+}
+
+/* === 输入框样式 === */
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea,
+.stSelectbox > div > div {
+    background: var(--bg-white) !important;
+    border: 1px solid var(--border-medium) !important;
+    color: var(--text-primary) !important;
+    border-radius: var(--radius-md) !important;
+    transition: border-color var(--transition-fast) !important;
+}
+
+.stTextInput > div > div > input:focus,
+.stTextArea > div > div > textarea:focus,
+.stSelectbox > div > div:focus-within {
+    border-color: var(--primary-500) !important;
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.1) !important;
+}
+
+/* === 消息提示 === */
+.stSuccess {
+    background: var(--success-50) !important;
+    border: 1px solid var(--success-100) !important;
+    border-radius: var(--radius-md) !important;
+    color: var(--success-700) !important;
+}
+
+.stError {
+    background: var(--error-50) !important;
+    border: 1px solid var(--error-100) !important;
+    border-radius: var(--radius-md) !important;
+    color: var(--error-700) !important;
+}
+
+.stWarning {
+    background: var(--warning-50) !important;
+    border: 1px solid var(--warning-100) !important;
+    border-radius: var(--radius-md) !important;
+    color: var(--warning-700) !important;
+}
+
+.stInfo {
+    background: var(--primary-50) !important;
+    border: 1px solid var(--primary-200) !important;
+    border-radius: var(--radius-md) !important;
+    color: var(--primary-800) !important;
+}
+
+/* === 标签页 === */
+.stTabs [data-baseweb="tab-list"] {
+    background: var(--gray-100);
+    border-radius: var(--radius-lg);
+    padding: var(--space-1);
+    gap: var(--space-1);
+    border: 1px solid var(--border-light);
+}
+
+.stTabs [data-baseweb="tab"] {
+    color: var(--gray-500) !important;
+    border-radius: var(--radius-sm) !important;
+    font-weight: 500 !important;
+    font-size: var(--font-size-md) !important;
+}
+
+.stTabs [aria-selected="true"] {
+    background: var(--bg-white) !important;
+    color: var(--primary-600) !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important;
+}
+
+/* === Expander === */
+.streamlit-expanderHeader {
+    background: var(--bg-white) !important;
+    border: 1px solid var(--border-light) !important;
+    border-radius: var(--radius-md) !important;
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+}
+
+/* === 信息框 === */
+.info-box {
+    background: var(--primary-50);
+    border-left: 4px solid var(--primary-600);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    padding: var(--space-4) var(--space-5);
+    margin: var(--space-3) 0;
+    color: var(--primary-800);
+    font-size: var(--font-size-md);
+}
+
+/* === 数据地图节点 === */
+.data-map-node {
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5) var(--space-6);
+    text-align: center;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+}
+
+.data-map-node:hover {
+    border-color: var(--primary-300);
+    box-shadow: var(--shadow-lg);
+    transform: scale(1.01);
+}
+
+/* === 成本分析卡片 === */
+.cost-breakdown {
+    background: var(--bg-white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+}
+
+/* === 聊天消息 === */
+.chat-message-user {
+    background: var(--primary-50);
+    border: 1px solid var(--primary-200);
+    border-radius: var(--radius-xl) var(--radius-xl) var(--radius-sm) var(--radius-xl);
+    padding: var(--space-4) var(--space-5);
+    margin: var(--space-2) 0 var(--space-2) var(--space-8);
+    color: var(--text-primary);
+}
+
+.chat-message-ai {
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-xl) var(--radius-xl) var(--radius-xl) var(--radius-sm);
+    padding: var(--space-4) var(--space-5);
+    margin: var(--space-2) var(--space-8) var(--space-2) 0;
+    color: var(--gray-700);
+    box-shadow: var(--shadow-sm);
+}
+
+/* === 侧边栏 Logo === */
+.sidebar-logo {
+    text-align: center;
+    padding: var(--space-8) 0 var(--space-3) 0;
+}
+
+.sidebar-logo-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--primary-800);
+    margin-top: var(--space-2);
+}
+
+.sidebar-logo-sub {
+    font-size: var(--font-size-xs);
+    color: var(--gray-500);
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+/* === 内容卡片 === */
+.content-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6) var(--space-7);
+    margin-bottom: var(--space-5);
+    box-shadow: var(--shadow-sm);
+}
+
+/* === 数据表格 === */
+.stDataFrame {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+}
+
+/* === 表单标签 === */
+.stFormLabel {
+    color: var(--gray-700) !important;
+    font-weight: 500 !important;
+    font-size: var(--font-size-md) !important;
+}
+
+/* === Checkbox === */
+.stCheckbox label {
+    color: var(--gray-700) !important;
+}
+
+/* === Plotly 图表背景 === */
+.js-plotly-plot,
+.plotly,
+.plotly-graph-div {
+    background: transparent !important;
+}
